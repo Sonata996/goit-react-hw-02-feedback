@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { RenderFeedbackOpn } from "./FeedbackOptions/FeedbackOptions";
 import { RenderStatistic } from "./Statisctic/statictic";
+import { Notification } from "./Notification/Notification";
 
 export class App extends Component {
 state ={
@@ -31,6 +32,7 @@ clickButtonBad = () => {
   render() {
     const {good,neutral,bad} = this.state
     return(
+      <main>
     <section>
       <RenderFeedbackOpn
        title='Please leave feedback'
@@ -38,7 +40,9 @@ clickButtonBad = () => {
         onClickNeutral={this.clickButtonNeutral}
         onClickBad={this.clickButtonBad}
         />
-      <RenderStatistic  
+    </section>
+    <section>
+    <RenderStatistic  
       title='Statistic' 
       good={good} 
       neutral={neutral} 
@@ -46,7 +50,9 @@ clickButtonBad = () => {
       countFeedback={this.countTotalFeedback(this.state)}
       countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage(this.state, this.countTotalFeedback(this.state))}
       />
+      <Notification statusStatistic={this.state} message="There is no feedback"/>
     </section>
+    </main>
     )
   }
 };

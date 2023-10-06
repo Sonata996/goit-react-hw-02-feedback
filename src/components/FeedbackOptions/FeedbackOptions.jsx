@@ -1,8 +1,9 @@
-
+import { BlockButtons } from "./feedbackOptions.styled"
 
 export const RenderFeedbackOpn = ({title,onClickGood,onClickNeutral,onClickBad}) =>{
     return <div>
         <h2>{title}</h2>
+        <BlockButtons>
         <button 
         onClick={() => onClickGood()}>
             Good
@@ -17,5 +18,6 @@ export const RenderFeedbackOpn = ({title,onClickGood,onClickNeutral,onClickBad})
             onClickBad()}>
                 Bad
         </button>
+        </BlockButtons>
     </div>
 }
